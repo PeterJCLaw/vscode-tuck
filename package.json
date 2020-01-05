@@ -24,6 +24,8 @@
         ]
     },
     "scripts": {
+        "package": "vsce package",
+        "publish": "vsce publish",
         "vscode:prepublish": "webpack --mode production",
         "compile": "webpack --mode development",
         "watch": "webpack --mode development --watch",
@@ -45,6 +47,7 @@
         "ts-loader": "^6.2.1",
         "tslint": "^5.20.0",
         "typescript": "^3.6.4",
+        "vsce": "^1.71.0",
         "vscode-test": "^1.2.2",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"
