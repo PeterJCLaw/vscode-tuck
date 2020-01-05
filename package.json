@@ -1,5 +1,7 @@
 {
     "name": "py-wrapper",
+    "publisher": "PeterJCLaw",
+    "repository": "https://github.com/PeterJCLaw/vscode-tuck",
     "displayName": "Python Wrapper",
     "description": "",
     "version": "0.0.1",
