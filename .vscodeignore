@@ -6,5 +6,6 @@ src/**
 vsc-extension-quickstart.md
 **/tsconfig.json
 **/tslint.json
+**/yarn-error.log
 **/*.map
 **/*.ts
