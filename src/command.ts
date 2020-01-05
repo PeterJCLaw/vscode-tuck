@@ -2,7 +2,10 @@ import { spawnSync } from 'child_process';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-import { EditorUtils } from './patch-utils';
+// Lnaguae Server Protocol Types
+type Position = { line: number; character: number; };
+type Range = { start: Position, end: Position };
+type TextEdit = { range: Range, newText: string };
 
 const PYTHON_LANGUAGE = 'python';
 
@@ -32,7 +35,7 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
     const wrapperScript = context.asAbsolutePath(
         path.join('pythonFiles', 'extension-entrypoint.py'),
     );
-    const args = ['-', '--diff', '--position', cursorPosition(activeEditor)];
+    const args = ['-', '--edits', '--position', cursorPosition(activeEditor)];
     const spawnOptions = {
         input: document.getText(),
         cwd: path.dirname(document.uri.fsPath)
@@ -52,11 +55,17 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
         return;
     }
 
-    const diff = returned.stdout.toString();
-    const edit = new EditorUtils().getWorkspaceEditsFromPatch(
-        document.getText(),
-        diff,
-        document.uri,
-    );
-    vscode.workspace.applyEdit(edit);
+    const edits = JSON.parse(returned.stdout.toString()) as Array<TextEdit>;
+    const workspaceEdit = new vscode.WorkspaceEdit();
+    edits.forEach(edit => {
+        const range = new vscode.Range(
+            edit.range.start.line,
+            edit.range.start.character,
+            edit.range.end.line,
+            edit.range.end.character,
+        );
+        workspaceEdit.replace(document.uri, range, edit.newText);
+    });
+
+    vscode.workspace.applyEdit(workspaceEdit);
 }
