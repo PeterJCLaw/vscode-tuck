@@ -29,10 +29,10 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
     // that we need another way to tell the python tool where to look for
     // configuration. We do that by setting the working direcotry to the
     // directory which contains the file.
-    // const wrapperScript = context.asAbsolutePath(path.join('pythonFiles', 'wrapper.py'));
-    const wrapperScript = '/home/peter/.virtualenvs/python-wrapper/bin/python';  // TODO
-    let args = ['-', '--diff', '--position', cursorPosition(activeEditor)];
-    args = ['/home/play/python-wrapper/wrapper.py'].concat(args); // TODO
+    const wrapperScript = context.asAbsolutePath(
+        path.join('pythonFiles', 'extension-entrypoint.py'),
+    );
+    const args = ['-', '--diff', '--position', cursorPosition(activeEditor)];
     const spawnOptions = {
         input: document.getText(),
         cwd: path.dirname(document.uri.fsPath)

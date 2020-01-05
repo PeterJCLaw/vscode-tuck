@@ -1,0 +1,3 @@
+[submodule "pythonFiles/tuck"]
+	path = pythonFiles/tuck
+	url = https://github.com/PeterJCLaw/tuck

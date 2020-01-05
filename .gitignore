@@ -1,6 +1,8 @@
 /dist
 /node_modules
 /out
+/pythonFiles/venv
+/pythonFiles/lib
 /yarn-error.log
 
 /*.vsix

@@ -2,6 +2,14 @@
 .vscode-test/**
 node_modules/**
 out/**
+pythonFiles/tuck/demo.py
+pythonFiles/tuck/README.md
+pythonFiles/tuck/requirements.txt
+pythonFiles/tuck/tests.py
+pythonFiles/tuck/.git*
+pythonFiles/install-requirements.sh
+pythonFiles/venv
+pythonFiles/lib/__pycache__
 src/**
 .gitignore
 **/tsconfig.json
@@ -9,4 +17,5 @@ src/**
 **/webpack.config.js
 **/yarn-error.log
 **/*.map
+**/*.pyc
 **/*.ts
