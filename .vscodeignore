@@ -15,7 +15,7 @@ pythonFiles/install-requirements.sh
 pythonFiles/venv
 pythonFiles/lib/__pycache__
 src/**
-.gitignore
+.git*
 **/tsconfig.json
 **/tslint.json
 **/webpack.config.js
