@@ -5,8 +5,12 @@ out/**
 pythonFiles/tuck/demo.py
 pythonFiles/tuck/README.md
 pythonFiles/tuck/requirements.txt
+pythonFiles/tuck/script
+pythonFiles/tuck/setup.cfg
 pythonFiles/tuck/tests.py
 pythonFiles/tuck/.git*
+pythonFiles/tuck/.editorconfig
+pythonFiles/tuck/.vscode
 pythonFiles/install-requirements.sh
 pythonFiles/venv
 pythonFiles/lib/__pycache__
