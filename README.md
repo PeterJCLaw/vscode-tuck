@@ -11,6 +11,11 @@ against the current file and using the cursor position as the position to wrap.
 
 ## Release Notes
 
-### [Unreleased]
+See [CHANGELOG.md](./CHANGELOG.md).
 
-Initial release.
+## Attribution
+
+Tuck uses [`asttokens`][asttokens] to aid its handling of the Python AST.
+`asttokens` is included in the extension, licensed under Apache 2.0.
+
+[asttokens]: https://pypi.org/project/asttokens/
