@@ -1,9 +1,9 @@
 {
-    "name": "py-wrapper",
+    "name": "tuck",
     "publisher": "PeterJCLaw",
     "repository": "https://github.com/PeterJCLaw/vscode-tuck",
-    "displayName": "Python Wrapper",
-    "description": "",
+    "displayName": "Tuck",
+    "description": "Semi-automated python formatting",
     "version": "0.0.1",
     "engines": {
         "vscode": "^1.41.0"
@@ -12,14 +12,14 @@
         "Formatters"
     ],
     "activationEvents": [
-        "onCommand:py-wrapper.wrap-at-cursor"
+        "onCommand:tuck.wrap-at-cursor"
     ],
     "main": "./dist/extension.js",
     "contributes": {
         "commands": [
             {
-                "command": "py-wrapper.wrap-at-cursor",
-                "title": "Py Wrapper: Wrap statement at Cursor"
+                "command": "tuck.wrap-at-cursor",
+                "title": "Tuck: Wrap statement at Cursor"
             }
         ]
     },
