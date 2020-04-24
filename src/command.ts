@@ -9,11 +9,14 @@ type TextEdit = { range: Range, newText: string };
 
 const PYTHON_LANGUAGE = 'python';
 
-function cursorPosition(editor: vscode.TextEditor): string {
-    const cursorPosition = editor.selection.active;
+function positionToString(cursorPosition: Position): string {
     const line = cursorPosition.line + 1;
     const character = cursorPosition.character;
     return `${line}:${character}`;
+}
+
+function cursorPositions(editor: vscode.TextEditor): string[] {
+    return editor.selections.map(s => positionToString(s.active));
 }
 
 export function wrapCommand(context: vscode.ExtensionContext): undefined {
@@ -35,7 +38,7 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
     const wrapperScript = context.asAbsolutePath(
         path.join('pythonFiles', 'extension-entrypoint.py'),
     );
-    const args = ['-', '--edits', '--position', cursorPosition(activeEditor)];
+    const args = ['-', '--edits', '--positions'].concat(cursorPositions(activeEditor));
     const spawnOptions = {
         input: document.getText(),
         cwd: path.dirname(document.uri.fsPath)
