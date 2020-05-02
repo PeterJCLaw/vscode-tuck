@@ -2,6 +2,14 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.0.4
+
+- Update tuck library to 0.0.3:
+  - Account for **kwargs appearing in a dict literal
+  - Support for wrapping if expressions
+  - Wrap the test of an if statement if asked to wrap the if statement
+  - Don't wrap an if statement or function definition from their bodies
+
 ## 0.0.3
 
 - Update tuck library to 0.0.2:
