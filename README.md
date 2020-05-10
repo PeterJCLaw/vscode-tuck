@@ -12,6 +12,45 @@ against the current file and using the cursor position as the position to wrap.
 The command can most easily be run using the keyboard shortcut
 <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd>.
 
+### Examples
+
+#### Function definition
+
+Place cursor on `foo` or within the parentheses, then run the command:
+
+``` python
+def foo(bar: str, quox: int = 0) -> List[str]:
+    return 4.2
+```
+
+wraps to:
+
+``` python
+def foo(
+    bar: str,
+    quox: int = 0,
+) -> float:
+    return 4.2
+```
+
+#### List comprehension
+
+Place cursor on `for`, then run the command:
+
+``` python
+[x for x in 'aBcD' if x.isupper()]
+```
+
+wraps to:
+
+``` python
+[
+    x
+    for x in 'aBcD'
+    if x.isupper()
+]
+```
+
 ## Release Notes
 
 See [CHANGELOG.md](./CHANGELOG.md).
