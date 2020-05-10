@@ -21,6 +21,13 @@
                 "command": "tuck.wrap-at-cursor",
                 "title": "Tuck: Wrap statement at Cursor"
             }
+        ],
+        "keybindings": [
+            {
+                "command": "tuck.wrap-at-cursor",
+                "key": "alt+shift+w",
+                "when": "editorTextFocus && editorLangId == python && !findInputFocussed && !replaceInputFocussed"
+            }
         ]
     },
     "scripts": {

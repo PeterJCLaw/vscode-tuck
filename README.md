@@ -9,6 +9,9 @@ VSCode extension for [tuck][] -- semi-automated Python formatting.
 This extension current provides a single command, equivalent to calling tuck
 against the current file and using the cursor position as the position to wrap.
 
+The command can most easily be run using the keyboard shortcut
+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd>.
+
 ## Release Notes
 
 See [CHANGELOG.md](./CHANGELOG.md).
