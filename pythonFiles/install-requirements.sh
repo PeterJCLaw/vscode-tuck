@@ -10,7 +10,7 @@ pip install --upgrade pip
 # Install the depdencies into `lib`, requiring that we're platform agnostic.
 # Note: we assume that all dependencies are explicitly present in `requirements.txt`.
 pip install \
-    --requirement tuck/requirements.txt \
+    --requirement requirements.txt \
     --target lib \
     --implementation py \
     --no-deps \
