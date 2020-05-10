@@ -2,6 +2,12 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.0.5
+
+- Update tuck library to 0.0.6:
+  - Better support for generator expressions within the expression being wrapped
+- Add keyboard shortcut <kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>W</kbd>
+
 ## 0.0.4
 
 - Update tuck library to 0.0.3:
