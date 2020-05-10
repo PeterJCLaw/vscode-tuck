@@ -1,5 +1,6 @@
 .vscode/**
 .vscode-test/**
+.mypy_cache/**
 node_modules/**
 out/**
 pythonFiles/install-requirements.sh
