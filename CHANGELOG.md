@@ -2,6 +2,11 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.0.7
+
+- Update tuck library to 0.0.8:
+  - Handle wrapping implicit tuples, including in subscripts
+
 ## 0.0.6
 
 - Update tuck library to 0.0.7:
