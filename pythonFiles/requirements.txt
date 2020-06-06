@@ -6,4 +6,4 @@
 #
 asttokens==2.0.4          # via tuck
 six==1.14.0               # via asttokens
-tuck==0.0.6               # via -r requirements.in
+tuck==0.0.7               # via -r requirements.in

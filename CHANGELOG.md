@@ -2,6 +2,12 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.0.6
+
+- Update tuck library to 0.0.7:
+  - Cope with existing trailing commas in unwrapped formats
+  - Support some forms of already partially wrapped statement
+
 ## 0.0.5
 
 - Update tuck library to 0.0.6:
