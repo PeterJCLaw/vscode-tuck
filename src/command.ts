@@ -6,6 +6,7 @@ import * as vscode from 'vscode';
 type Position = { line: number; character: number; };
 type Range = { start: Position, end: Position };
 type TextEdit = { range: Range, newText: string };
+type Result = { edits: Array<TextEdit> };
 
 const PYTHON_LANGUAGE = 'python';
 
@@ -58,9 +59,9 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
         return;
     }
 
-    const edits = JSON.parse(returned.stdout.toString()) as Array<TextEdit>;
+    const result = JSON.parse(returned.stdout.toString()) as Result;
     const workspaceEdit = new vscode.WorkspaceEdit();
-    edits.forEach(edit => {
+    result.edits.forEach(edit => {
         const range = new vscode.Range(
             edit.range.start.line,
             edit.range.start.character,
