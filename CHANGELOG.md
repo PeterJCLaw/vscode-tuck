@@ -2,6 +2,15 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.0.8
+
+- Update tuck library to 0.0.9:
+  - Improve handling of parenthesized boolean expressions which are children of
+    the expression being wrapped
+  - Fix location of inserted trailing commas when the statement being wrapped is
+    already partially wrapped
+- Improve error messages
+
 ## 0.0.7
 
 - Update tuck library to 0.0.8:
