@@ -7,6 +7,8 @@ type Position = { line: number; character: number; };
 type Range = { start: Position, end: Position };
 type TextEdit = { range: Range, newText: string };
 type Result = { edits: Array<TextEdit> };
+type Error = { code: string, message: string };
+type ErrorResult = { error: Error };
 
 const PYTHON_LANGUAGE = 'python';
 
@@ -53,9 +55,14 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
         return;
     }
 
-    if (returned.status) {
-        vscode.window.showErrorMessage(returned.stderr.toString());
-        console.error(returned.stderr.toString());
+    if (returned.status || returned.stderr.toString()) {
+        const errorResult = JSON.parse(returned.stderr.toString()) as ErrorResult;
+        let { message, code } = errorResult.error;
+        if (code === 'target_syntax_error') {
+            message = message.replace('<stdin>', path.basename(document.uri.fsPath));
+        }
+        vscode.window.showWarningMessage(message);
+        console.warn(message);
         return;
     }
 
