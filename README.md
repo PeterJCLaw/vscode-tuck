@@ -19,7 +19,7 @@ The command can most easily be run using the keyboard shortcut
 Place cursor on `foo` or within the parentheses, then run the command:
 
 ``` python
-def foo(bar: str, quox: int = 0) -> List[str]:
+def foo(bar: str, quox: int = 0) -> float:
     return 4.2
 ```
 
