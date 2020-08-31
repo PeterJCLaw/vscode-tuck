@@ -2,6 +2,15 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.0.9
+
+- Update tuck library to 0.0.10:
+  - Support async function definitions
+  - Cope with existing trailing commas in class and function definitions
+  - Improve heuristics for what to wrap when positioned on an attribute
+  - Improve check for not being in a body block
+  - Fix wrapping of generators on Python 3.8+
+
 ## 0.0.8
 
 - Update tuck library to 0.0.9:
