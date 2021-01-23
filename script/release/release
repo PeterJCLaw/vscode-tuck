@@ -1,0 +1,18 @@
+#!/bin/bash -e
+
+TAG=$(git describe --tags --exact-match)
+# Yes this is ugly, but there doesn't seem to be a better way to get yarn to
+# output the current version of the package.
+VERSION=$(yarn version < /dev/null | grep 'Current version' | cut -d: -f2)
+# Trim whitespace
+VERSION=$(echo $VERSION)
+
+test "$TAG" == "$VERSION"
+
+echo "Building $TAG"
+
+yarn run package
+
+echo "Uploading $TAG"
+
+yarn run publish
