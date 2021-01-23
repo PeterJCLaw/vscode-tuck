@@ -2,10 +2,14 @@
 
 cd $(dirname $0)
 
-python3 -m venv venv
+python3.5 -m venv venv
 . venv/bin/activate
 
-pip install --upgrade pip
+pip install --upgrade pip pip-tools
+
+pip-compile
+
+pip uninstall --yes pip-tools
 
 # Install the depdencies into `lib`, requiring that we're platform agnostic.
 # Note: we assume that all dependencies are explicitly present in `requirements.txt`.
