@@ -1,0 +1,40 @@
+version: 2.1
+
+references:
+  filter-tags: &filter-tags
+    filters:
+      branches:
+        ignore: /.*/
+      tags:
+        only: /^\d*\.\d*\.\d*/
+
+
+jobs:
+  release:
+    docker:
+      - image: circleci/python-node:3.5
+    steps:
+      - checkout
+
+      - run:
+          name: Install JavaScript requirements
+          command: yarn
+
+      - run:
+          name: Install Python requirements
+          command: ./pythonFiles/install-requirements.sh
+
+      - run:
+          name: Build & Publish
+          command: |
+            echo '{"publishers":[{"name":"peterjclaw","pat":"$AZURE_TOKEN"}]}' > ~/.vsce
+            ./script/release/release
+
+
+workflows:
+  version: 2.1
+
+  release:
+    jobs:
+      - release:
+          <<: *filter-tags
