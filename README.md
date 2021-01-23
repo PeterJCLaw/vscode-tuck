@@ -4,6 +4,13 @@ VSCode extension for [tuck][] -- semi-automated Python formatting.
 
 [tuck]: https://github.com/PeterJCLaw/tuck
 
+## Install
+
+Install from the [Extension Marketplace][marketplace] using this extensions full
+name: `peterjclaw.tuck`.
+
+[marketplace]: https://marketplace.visualstudio.com/items?itemName=peterjclaw.tuck
+
 ## Features
 
 This extension current provides a single command, equivalent to calling tuck
