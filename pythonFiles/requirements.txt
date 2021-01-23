@@ -4,6 +4,9 @@
 #
 #    pip-compile
 #
-asttokens==2.0.4          # via tuck
-six==1.14.0               # via asttokens
-tuck==0.0.10              # via -r requirements.in
+asttokens==2.0.4
+    # via tuck
+six==1.14.0
+    # via asttokens
+tuck==0.0.10
+    # via -r requirements.in
