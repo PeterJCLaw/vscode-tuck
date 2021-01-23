@@ -2,6 +2,10 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.1.0
+
+- Update tuck library to 0.1.0, which formally licenses it as Apache 2.0
+
 ## 0.0.10
 
 - Update tuck library to 0.0.12:

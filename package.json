@@ -4,7 +4,8 @@
     "repository": "https://github.com/PeterJCLaw/vscode-tuck",
     "displayName": "Tuck",
     "description": "Semi-automated python formatting",
-    "version": "0.0.10",
+    "license": "Apache-2.0",
+    "version": "0.1.0",
     "engines": {
         "vscode": "^1.41.0"
     },
