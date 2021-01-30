@@ -2,6 +2,12 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## 0.1.1
+
+- Update tuck library to 0.1.1:
+  - Fix wrapping function definitions where the last argument has a tuple as its
+    default value
+
 ## 0.1.0
 
 - Update tuck library to 0.1.0, which formally licenses it as Apache 2.0
