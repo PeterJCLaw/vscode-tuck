@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Build & Publish
           command: |
-            echo '{"publishers":[{"name":"peterjclaw","pat":"$AZURE_TOKEN"}]}' > ~/.vsce
+            export VSCE_PAT=$AZURE_TOKEN
             ./script/release/release
 
 
