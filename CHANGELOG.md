@@ -2,7 +2,7 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
-## Unreleased
+## 0.1.2
 
 - Use an explicit Python by fetching the workspace's Python where possible, this
   aims to support Windows and or other environments where the workspace python
