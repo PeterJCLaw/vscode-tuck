@@ -55,14 +55,21 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
         return;
     }
 
-    if (returned.status || returned.stderr.toString()) {
-        const errorResult = JSON.parse(returned.stderr.toString()) as ErrorResult;
-        let { message, code } = errorResult.error;
-        if (code === 'target_syntax_error') {
-            message = message.replace('<stdin>', path.basename(document.uri.fsPath));
+    const errorString = returned.stderr.toString();
+    if (returned.status || errorString) {
+        try {
+            const errorResult = JSON.parse(errorString) as ErrorResult;
+            let { message, code } = errorResult.error;
+            if (code === 'target_syntax_error') {
+                message = message.replace('<stdin>', path.basename(document.uri.fsPath));
+            }
+            vscode.window.showWarningMessage(message);
+            console.warn(message);
         }
-        vscode.window.showWarningMessage(message);
-        console.warn(message);
+        catch (error) {
+            console.error(error);
+            console.error(errorString);
+        }
         return;
     }
 
