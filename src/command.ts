@@ -22,6 +22,21 @@ function cursorPositions(editor: vscode.TextEditor): string[] {
     return editor.selections.map(s => positionToString(s.active));
 }
 
+function getPythonPath(document: vscode.TextDocument): string | undefined {
+    const pythonExtension = vscode.extensions.getExtension('ms-python.python');
+    if (!pythonExtension) {
+        console.log('Could not find the Python extension.');
+        return;
+    }
+
+    if (pythonExtension.packageJSON?.featureFlags?.usingNewInterpreterStorage) {
+        const executionDetails = pythonExtension.exports.settings.getExecutionDetails(document.uri);
+        return executionDetails.execCommand[0];
+    }
+
+    return vscode.workspace.getConfiguration('python', document).get('pythonPath');
+}
+
 export function wrapCommand(context: vscode.ExtensionContext): undefined {
     console.log('Running wrapCommand');
 
@@ -47,7 +62,18 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
         cwd: path.dirname(document.uri.fsPath)
     };
 
-    const returned = spawnSync(wrapperScript, args, spawnOptions);
+    let runner: string;
+    const pythonPath = getPythonPath(document);
+    if (pythonPath) {
+        console.log(`Using explicit python path '${pythonPath}'`);
+        runner = pythonPath;
+        args.unshift(wrapperScript);
+    } else {
+        console.log('Using implicit python');
+        runner = wrapperScript;
+    }
+
+    const returned = spawnSync(runner, args, spawnOptions);
 
     if (returned.error) {
         vscode.window.showErrorMessage(returned.error.message);
