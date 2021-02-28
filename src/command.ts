@@ -1,4 +1,5 @@
 import { spawnSync } from 'child_process';
+import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
@@ -64,7 +65,7 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
 
     let runner: string;
     const pythonPath = getPythonPath(document);
-    if (pythonPath) {
+    if (pythonPath && fs.existsSync(pythonPath)) {
         console.log(`Using explicit python path '${pythonPath}'`);
         runner = pythonPath;
         args.unshift(wrapperScript);
