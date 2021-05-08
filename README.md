@@ -1,5 +1,7 @@
 # VSCode Tuck
 
+[![CircleCI](https://circleci.com/gh/PeterJCLaw/vscode-tuck.svg?style=svg)](https://circleci.com/gh/PeterJCLaw/vscode-tuck)
+
 VSCode extension for [tuck][] -- semi-automated Python formatting.
 
 [tuck]: https://github.com/PeterJCLaw/tuck
