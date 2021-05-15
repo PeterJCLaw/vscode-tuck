@@ -2,7 +2,7 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
-## Unreleased
+## 0.1.3
 
 - Update tuck library to 0.1.2:
   - Improve handling for trailing commas already existing within wrapped syntax
