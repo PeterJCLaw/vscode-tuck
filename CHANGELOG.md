@@ -2,6 +2,12 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Update tuck library to 0.1.2:
+  - Improve handling for trailing commas already existing within wrapped syntax
+  - Improve support for wrapping nested conditional expressions
+
 ## 0.1.2
 
 - Use an explicit Python by fetching the workspace's Python where possible, this
