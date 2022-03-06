@@ -2,6 +2,13 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Update tuck library to 0.1.3:
+  - Drop explicit support for Python < 3.7 (likely still works though)
+  - Surround wrapped ternary expressions with parentheses for neatness
+  - Improve wrapping of generators when they're the only argument to a call
+
 ## 0.1.3
 
 - Update tuck library to 0.1.2:
