@@ -2,7 +2,7 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
-## Unreleased
+## 0.1.4
 
 - Update tuck library to 0.1.3:
   - Drop explicit support for Python < 3.7 (likely still works though)
