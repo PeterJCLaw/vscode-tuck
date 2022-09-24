@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
 
-// Lnaguae Server Protocol Types
+// Language Server Protocol Types
 type Position = { line: number; character: number; };
 type Range = { start: Position, end: Position };
 type TextEdit = { range: Range, newText: string };
