@@ -3,9 +3,23 @@
 import os
 import sys
 
-MY_DIR = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(MY_DIR, 'lib'))
+TUCK_PATH = os.environ.get('TUCK_PATH')
 
-import tuck
+if not TUCK_PATH:
+    MY_DIR = os.path.dirname(os.path.abspath(__file__))
+    TUCK_PATH = os.path.join(MY_DIR, 'lib')
+
+sys.path.insert(0, TUCK_PATH)
+
+try:
+    import tuck
+except ImportError:
+    import json
+    import traceback
+    exit(json.dumps({'error': {
+        'code': 'tuck_import_error',
+        'message': f"Import error using tuck from {TUCK_PATH!r}",
+        'detail': traceback.format_exc(),
+    }}))
 
 tuck.main()

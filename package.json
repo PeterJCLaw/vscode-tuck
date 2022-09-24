@@ -23,6 +23,17 @@
                 "title": "Tuck: Wrap statement at Cursor"
             }
         ],
+        "configuration":{
+            "title": "Tuck",
+            "properties": {
+                "tuck.tuckPath": {
+                    "default": "",
+                    "markdownDescription": "Path to directory containing an install of `tuck` and its dependencies. Will be prepended to `$PYTHONPATH` for use instead of the version packaged with the extension.",
+                    "scope": "machine-overridable",
+                    "type": "string"
+                }
+            }
+        },
         "keybindings": [
             {
                 "command": "tuck.wrap-at-cursor",

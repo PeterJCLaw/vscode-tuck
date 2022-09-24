@@ -8,7 +8,7 @@ type Position = { line: number; character: number; };
 type Range = { start: Position, end: Position };
 type TextEdit = { range: Range, newText: string };
 type Result = { edits: Array<TextEdit> };
-type Error = { code: string, message: string };
+type Error = { code: string, message: string, detail: string | undefined };
 type ErrorResult = { error: Error };
 
 const PYTHON_LANGUAGE = 'python';
@@ -49,6 +49,8 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
 
     const document = activeEditor.document;
 
+    const tuckPath: string | undefined = vscode.workspace.getConfiguration('tuck', document).get('tuckPath');
+
     // We pass the content of the file to be sorted via stdin. This avoids
     // saving the file (as well as a potential temporary file), but does mean
     // that we need another way to tell the python tool where to look for
@@ -59,6 +61,7 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
     );
     const args = ['-', '--edits', '--positions'].concat(cursorPositions(activeEditor));
     const spawnOptions = {
+        env: tuckPath ? {TUCK_PATH: tuckPath} : undefined,
         input: document.getText(),
         cwd: path.dirname(document.uri.fsPath)
     };
@@ -91,6 +94,9 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
                 message = message.replace('<stdin>', path.basename(document.uri.fsPath));
             }
             vscode.window.showWarningMessage(message);
+            if (errorResult.error.detail) {
+                message += "\n" + errorResult.error.detail;
+            }
             console.warn(message);
         }
         catch (error) {

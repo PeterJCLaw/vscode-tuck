@@ -2,6 +2,11 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Introduce a `tuck.tuckPath` setting to allow use of the extension with an
+  arbitrary version of the `tuck` library.
+
 ## 0.1.4
 
 - Update tuck library to 0.1.3:
