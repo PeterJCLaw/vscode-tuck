@@ -6,6 +6,14 @@ All notable changes to the "tuck" extension will be documented in this file.
 
 - Introduce a `tuck.tuckPath` setting to allow use of the extension with an
   arbitrary version of the `tuck` library.
+- Update tuck library to 0.1.4:
+  - Fix various issues stemming from wrapping partially or fully already wrapped
+    functions (previously would add redundant newlines and newlines in bad places)
+  - Fix various cases where intervening lines would be over-indented when
+    wrapping a containing expression
+  - Fix wrapping conditional expressions within parentheses (previously would
+    add a redundant newline)
+  - Support wrapping ternary expressions with the cursor on the `else` portion
 
 ## 0.1.4
 
