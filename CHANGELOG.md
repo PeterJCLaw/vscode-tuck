@@ -58,7 +58,7 @@ All notable changes to the "tuck" extension will be documented in this file.
 ## 0.0.10
 
 - Update tuck library to 0.0.12:
-  - Fully Python 3.8 and 3.9
+  - Fully support Python 3.8 and 3.9
   - Support set literals and comprehensions
 
 ## 0.0.9
