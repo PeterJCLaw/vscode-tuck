@@ -2,7 +2,7 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
-## Unreleased
+## 0.1.6
 
 - Update tuck library to 0.1.5:
   - Fix various cases where extra newlines would be inserted when wrapping
