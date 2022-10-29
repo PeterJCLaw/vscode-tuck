@@ -2,6 +2,17 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Update tuck library to 0.1.4:
+  - Fix various cases where extra newlines would be inserted when wrapping
+    already wrapped statements
+  - Prevent unexpected wrapping of a parent statement (such as a function or
+    class definition) when the cursor is within the body of that statement and
+    not within another statement
+  - Fix handling of f-strings, no wrapping is performed however previously this
+    would crash `tuck`
+
 ## 0.1.5
 
 - Introduce a `tuck.tuckPath` setting to allow use of the extension with an
