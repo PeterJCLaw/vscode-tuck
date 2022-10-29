@@ -4,7 +4,7 @@ All notable changes to the "tuck" extension will be documented in this file.
 
 ## Unreleased
 
-- Update tuck library to 0.1.4:
+- Update tuck library to 0.1.5:
   - Fix various cases where extra newlines would be inserted when wrapping
     already wrapped statements
   - Prevent unexpected wrapping of a parent statement (such as a function or
