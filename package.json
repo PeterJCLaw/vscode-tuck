@@ -23,7 +23,7 @@
                 "title": "Tuck: Wrap statement at Cursor"
             }
         ],
-        "configuration":{
+        "configuration": {
             "title": "Tuck",
             "properties": {
                 "tuck.tuckPath": {
