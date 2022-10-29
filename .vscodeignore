@@ -11,7 +11,6 @@ pythonFiles/lib/__pycache__
 src/**
 .git*
 **/tsconfig.json
-**/tslint.json
 **/webpack.config.js
 **/yarn-error.log
 **/*.map
