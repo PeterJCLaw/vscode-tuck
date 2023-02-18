@@ -2,6 +2,11 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Improve handling of internal errors. Previously an error in the `tuck` library
+  would result in silence, now a warning message will be shown.
+
 ## 0.1.6
 
 - Update tuck library to 0.1.5:

@@ -22,4 +22,14 @@ except ImportError:
         'detail': traceback.format_exc(),
     }}))
 
-tuck.main()
+try:
+    tuck.main()
+except Exception as e:
+    import json
+    import traceback
+    summary = traceback.format_exception_only(e)[0]
+    exit(json.dumps({'error': {
+        'code': 'tuck_internal_error',
+        'message': f"Internal error in tuck: {summary}",
+        'detail': traceback.format_exc(),
+    }}))
