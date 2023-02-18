@@ -6,6 +6,9 @@ All notable changes to the "tuck" extension will be documented in this file.
 
 - Improve handling of internal errors. Previously an error in the `tuck` library
   would result in silence, now a warning message will be shown.
+- Update tuck library to 0.2.1:
+  - Cope with wrapping parenthesised generator conditionals
+  - Improve handling of `if` expressions already partially wrapped
 
 ## 0.1.6
 
