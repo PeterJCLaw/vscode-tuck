@@ -2,6 +2,19 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Update tuck library to 0.2.4:
+  - Drop support for Python <3.7. This had been expected for a while, however
+    this is the first release which uses features not present in earlier Python
+    versions.
+  - Allow wrapping of an AST node where several requested cursor positions would
+    select the same node. Previously this was disallowed due to potential
+    ambiguity, however this turned out to be annoying and there's really only
+    one reasonable thing that could be intended in this case.
+  - Fix handling of cursor positions not in file order. This issue was unlikely
+    to have affected extension users.
+
 ## 0.1.7
 
 - Improve handling of internal errors. Previously an error in the `tuck` library
