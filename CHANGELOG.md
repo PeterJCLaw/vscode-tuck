@@ -2,7 +2,7 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
-## Unreleased
+## 0.3.0
 
 - Move to using `@vscode/python-extension` API to get the current Python
   interpreter rather than querying the (long deprecated) setting directly.

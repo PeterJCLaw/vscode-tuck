@@ -5,7 +5,7 @@
     "displayName": "Tuck",
     "description": "Semi-automated python formatting",
     "license": "Apache-2.0",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "engines": {
         "vscode": "^1.41.0"
     },
