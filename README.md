@@ -8,8 +8,8 @@ VSCode extension for [tuck][] -- semi-automated Python formatting.
 
 ## Install
 
-Install from the [Extension Marketplace][marketplace] using this extensions full
-name: `peterjclaw.tuck`.
+Install from the [Extension Marketplace][marketplace] using this extension's
+full name: `peterjclaw.tuck`.
 
 [marketplace]: https://marketplace.visualstudio.com/items?itemName=peterjclaw.tuck
 
