@@ -2,6 +2,7 @@ import { spawnSync } from 'child_process';
 import * as fs from 'fs';
 import * as path from 'path';
 import * as vscode from 'vscode';
+import { PythonExtension } from '@vscode/python-extension';
 
 // Language Server Protocol Types
 type Position = { line: number; character: number; };
@@ -23,22 +24,28 @@ function cursorPositions(editor: vscode.TextEditor): string[] {
     return editor.selections.map(s => positionToString(s.active));
 }
 
-function getPythonPath(document: vscode.TextDocument): string | undefined {
-    const pythonExtension = vscode.extensions.getExtension('ms-python.python');
-    if (!pythonExtension) {
-        console.log('Could not find the Python extension.');
-        return;
-    }
+async function getPythonPath(): Promise<string | undefined> {
+    // Boilerplate from https://www.npmjs.com/package/@vscode/python-extension
 
-    if (pythonExtension.packageJSON?.featureFlags?.usingNewInterpreterStorage) {
-        const executionDetails = pythonExtension.exports.settings.getExecutionDetails(document.uri);
-        return executionDetails.execCommand[0];
-    }
+    // Load the Python extension API
+    const pythonApi: PythonExtension = await PythonExtension.api();
 
-    return vscode.workspace.getConfiguration('python', document).get('pythonPath');
+    // This will return something like /usr/bin/python
+    const environmentPath = pythonApi.environments.getActiveEnvironmentPath();
+
+    // `environmentPath.path` carries the value of the setting. Note that this
+    // path may point to a folder and not the python binary. Depends entirely on
+    // how the env was created. E.g., `conda create -n myenv python` ensures the
+    // env has a python binary `conda create -n myenv` does not include a python
+    // binary. Also, the path specified may not be valid, use the following to
+    // get complete details for this environment if need be.
+
+    const environment = await pythonApi.environments.resolveEnvironment(environmentPath);
+
+    return environment?.executable.uri?.fsPath;
 }
 
-export function wrapCommand(context: vscode.ExtensionContext): undefined {
+export async function wrapCommand(context: vscode.ExtensionContext): Promise<undefined> {
     console.log('Running wrapCommand');
 
     const activeEditor = vscode.window.activeTextEditor;
@@ -67,7 +74,7 @@ export function wrapCommand(context: vscode.ExtensionContext): undefined {
     };
 
     let runner: string;
-    const pythonPath = getPythonPath(document);
+    const pythonPath = await getPythonPath();
     if (pythonPath && fs.existsSync(pythonPath)) {
         console.log(`Using explicit python path '${pythonPath}'`);
         runner = pythonPath;

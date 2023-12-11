@@ -2,6 +2,13 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Move to using `@vscode/python-extension` API to get the current Python
+  interpreter rather than querying the (long deprecated) setting directly.
+  Fixes an `EACCESS` error when used alongside the latest versions of
+  `ms-python.python`.
+
 ## 0.2.0
 
 - Update tuck library to 0.2.4:

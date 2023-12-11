@@ -8,8 +8,8 @@ export function activate(context: vscode.ExtensionContext) {
     // Note: the commandId parameter must match the command field in package.json
     let disposable = vscode.commands.registerTextEditorCommand(
         'tuck.wrap-at-cursor',
-        () => {
-            wrapCommand(context);
+        async () => {
+            await wrapCommand(context);
         },
     );
 
