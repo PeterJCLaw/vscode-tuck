@@ -12,6 +12,7 @@ references:
 jobs:
   build:
     docker:
+      # TODO(upgrade): un-pin cheerio once we have newer NodeJS
       - image: cimg/python:3.7-node
     steps:
       - checkout
