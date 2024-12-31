@@ -11,7 +11,7 @@ pip-compile
 
 pip uninstall --yes pip-tools
 
-# Install the depdencies into `lib`, requiring that we're platform agnostic.
+# Install the dependencies into `lib`, requiring that we're platform agnostic.
 # Note: we assume that all dependencies are explicitly present in `requirements.txt`.
 pip install \
     --requirement requirements.txt \
