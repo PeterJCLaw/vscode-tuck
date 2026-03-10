@@ -72,9 +72,6 @@
         "webpack": "^5.104.1",
         "webpack-cli": "^4.10.0"
     },
-    "resolutions": {
-        "cheerio": "1.0.0-rc.12"
-    },
     "dependencies": {
         "@vscode/python-extension": "^1.0.5"
     }
