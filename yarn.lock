@@ -2211,7 +2211,7 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   resolved "https://registry.yarnpkg.com/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz#fa10c9115cc6d8865be221ba47ee9bed78601113"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
 
-mocha@^12.0.0:
+mocha@12.0.0-beta-10:
   version "12.0.0-beta-10"
   resolved "https://registry.yarnpkg.com/mocha/-/mocha-12.0.0-beta-10.tgz#3aebbbb26431b5285080d5785ce8ee54c4a3e966"
   integrity sha512-edlHS69tgkDTSQotUVP6KNtrIV/qQB/uwbxLHE8yFoD2htrbtFv21CyyNVUC9LvcHNeMwNeR2uxJYxYhWPKGTA==
