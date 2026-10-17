@@ -11,7 +11,13 @@ VERSION=$(yarn version < /dev/null | grep 'Current version' | cut -d: -f2)
 # Trim whitespace
 VERSION=$(echo $VERSION)
 
-test "$TAG" == "$VERSION"
+if [ "$TAG" != "$VERSION" ]
+then
+    echo "Version mismatch"
+    echo "  Tag: $TAG"
+    echo "  Package: $VERSION"
+    exit 1
+fi
 
 echo "Building $TAG"
 
