@@ -43,10 +43,11 @@
         ]
     },
     "scripts": {
-        "vscode:prepublish": "yarn run package",
+        "package": "vsce package",
+        "publish": "vsce publish",
+        "vscode:prepublish": "webpack --mode production --devtool hidden-source-map",
         "compile": "webpack",
         "watch": "webpack --watch",
-        "package": "webpack --mode production --devtool hidden-source-map",
         "compile-tests": "tsc -p . --outDir out",
         "watch-tests": "tsc -p . -w --outDir out",
         "pretest": "yarn run compile-tests && yarn run compile && yarn run lint",
@@ -59,6 +60,7 @@
         "@types/vscode": "^1.140.0",
         "@vscode/test-cli": "^0.0.15",
         "@vscode/test-electron": "^3.0.0",
+        "@vscode/vsce": "^3.0.0",
         "eslint": "^10.5.0",
         "ts-loader": "^9.6.2",
         "typescript": "^6.0.3",
