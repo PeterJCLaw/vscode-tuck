@@ -10,6 +10,9 @@ pythonFiles/venv
 pythonFiles/lib/__pycache__
 src/**
 .git*
+.yarnrc
+**/.vscode-test.*
+**/eslint.config.mjs
 **/tsconfig.json
 **/webpack.config.js
 **/yarn-error.log
