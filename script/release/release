@@ -1,4 +1,8 @@
-#!/bin/bash -e
+#!/bin/bash
+
+set -euo pipefail
+
+cd $(dirname $0)/../..
 
 TAG=$(git describe --tags --exact-match)
 # Yes this is ugly, but there doesn't seem to be a better way to get yarn to
@@ -11,7 +15,7 @@ test "$TAG" == "$VERSION"
 
 echo "Building $TAG"
 
-yarn run package
+./script/build
 
 echo "Uploading $TAG"
 
