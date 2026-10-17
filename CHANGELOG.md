@@ -2,6 +2,10 @@
 
 All notable changes to the "tuck" extension will be documented in this file.
 
+## Unreleased
+
+- Build system improvements
+
 ## 0.3.0
 
 - Move to using `@vscode/python-extension` API to get the current Python
